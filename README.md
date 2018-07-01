@@ -144,6 +144,7 @@ hanlp segment --config path/to/another/hanlp.properties
 ```
 git clone https://github.com/hankcs/pyhanlp.git
 cd pyhanlp
+pip install -r requirements.txt
 pip install -e .
 python tests/test_hanlp.py
 ```

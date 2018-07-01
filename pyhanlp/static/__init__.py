@@ -42,7 +42,17 @@ else:
 
 import time
 
-STATIC_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+def hanlp_static_root():
+    static_root = os.environ.get('HANLP_STATIC_ROOT', None)
+
+    if static_root is None:
+        static_root = os.path.dirname(os.path.realpath(__file__))
+
+    return static_root
+
+
+STATIC_ROOT = hanlp_static_root()
 PATH_CONFIG = os.path.join(STATIC_ROOT, 'hanlp.properties')
 HANLP_DATA_PATH = os.path.join(STATIC_ROOT, 'data')
 PATH_DATA_VERSION = os.path.join(HANLP_DATA_PATH, 'version.txt')
